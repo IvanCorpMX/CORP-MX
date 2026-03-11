@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Linkedin, Mail } from 'lucide-react';
+import { Briefcase, ShieldCheck, Zap, LineChart } from 'lucide-react';
 
 export default function Team() {
   const team = [
@@ -8,25 +8,29 @@ export default function Team() {
       name: 'Erick Montoya',
       role: 'Director General',
       company: 'Corp-MX & IB México',
-      image: '/images/team-erick.webp'
+      description: 'Lidera la visión estratégica del holding y dirige las operaciones de infraestructura tecnológica, asegurando la integración perfecta de todas las divisiones.',
+      icon: Briefcase
     },
     {
       name: 'Guadalupe Morales',
       role: 'Directora',
       company: 'R2A México',
-      image: '/images/team-guadalupe.webp'
+      description: 'Especialista en estrategias de seguridad electrónica y protección perimetral, garantizando entornos seguros para los activos más críticos de nuestros clientes.',
+      icon: ShieldCheck
     },
     {
       name: 'Carlos Sibilla',
       role: 'Director',
       company: 'S3S México',
-      image: '/images/team-carlos.webp'
+      description: 'Experto en calidad de energía y sistemas de respaldo. Asegura que la infraestructura eléctrica de los proyectos opere con máxima eficiencia y sin interrupciones.',
+      icon: Zap
     },
     {
       name: 'Jazmin Morales',
       role: 'Directora',
       company: 'G4W Consultores',
-      image: '/images/team-jazmin.webp'
+      description: 'Dirige la gestión de proyectos y consultoría operativa, optimizando recursos y procesos para maximizar el retorno de inversión en cada implementación.',
+      icon: LineChart
     }
   ];
 
@@ -47,33 +51,34 @@ export default function Team() {
           {team.map((member, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative rounded-xl overflow-hidden aspect-[3/4] shadow-sm"
+              className="group h-[320px] w-full [perspective:1000px]"
             >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-corp-black via-corp-black/40 to-transparent opacity-90"></div>
-              
-              <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end">
-                <h4 className="text-gold-500 font-bold uppercase tracking-wider text-xs mb-1">{member.company}</h4>
-                <h3 className="text-xl font-display font-bold mb-1 text-white">{member.name}</h3>
-                <p className="text-sm text-white/80 mb-4">{member.role}</p>
+              <div className="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                 
-                <div className="flex gap-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                  <a href="#" className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-gold-500 hover:text-white transition-colors text-white">
-                    <Linkedin size={14} />
-                  </a>
-                  <a href="#" className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center hover:bg-gold-500 hover:text-white transition-colors text-white">
-                    <Mail size={14} />
-                  </a>
+                {/* Front of card */}
+                <div className="absolute inset-0 [backface-visibility:hidden] bg-gray-50 border border-corp-black/10 rounded-2xl p-8 flex flex-col items-center justify-center shadow-sm">
+                  <div className="w-20 h-20 rounded-full bg-white shadow-sm border border-corp-black/5 flex items-center justify-center mb-6">
+                    <member.icon size={32} className="text-gold-500" />
+                  </div>
+                  <h3 className="text-xl font-display font-bold mb-2 text-corp-black text-center">{member.name}</h3>
+                  <p className="text-sm text-corp-black/60 text-center mb-4">{member.role}</p>
+                  <div className="mt-auto">
+                    <h4 className="text-gold-500 font-bold uppercase tracking-wider text-xs text-center">{member.company}</h4>
+                  </div>
                 </div>
+
+                {/* Back of card */}
+                <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] bg-corp-black text-white rounded-2xl p-8 flex flex-col items-center justify-center shadow-lg border border-corp-black">
+                  <h3 className="text-lg font-display font-bold mb-4 text-gold-500 text-center">{member.name}</h3>
+                  <p className="text-sm text-white/80 text-center leading-relaxed">
+                    {member.description}
+                  </p>
+                </div>
+
               </div>
             </motion.div>
           ))}

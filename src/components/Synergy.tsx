@@ -2,79 +2,65 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 export default function Synergy() {
-  const steps = [
-    {
-      company: 'IB México',
-      action: 'Protege la red',
-      desc: 'Establece la infraestructura base y asegura la conectividad de datos.',
-      number: '01'
-    },
-    {
-      company: 'R2A México',
-      action: 'Protege físicamente',
-      desc: 'Blinda las instalaciones con sistemas de seguridad electrónica.',
-      number: '02'
-    },
-    {
-      company: 'S3S México',
-      action: 'Garantiza energía',
-      desc: 'Asegura que todos los sistemas operen sin interrupciones.',
-      number: '03'
-    },
-    {
-      company: 'G4W Consultores',
-      action: 'Gestiona la operación',
-      desc: 'Administra los recursos y optimiza los procesos del proyecto.',
-      number: '04'
-    }
-  ];
-
   return (
-    <section id="sinergia" className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Decorative lines */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-corp-black/5 hidden lg:block"></div>
-      <div className="absolute top-1/2 left-0 w-full h-px bg-corp-black/5 hidden lg:block"></div>
-
+    <section id="sinergias" className="py-24 bg-gray-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">Sinergia Estratégica</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold max-w-3xl mx-auto text-corp-black">
-            El poder de la integración total.
+        <div className="text-center mb-16">
+          <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">Alianzas Estratégicas</h2>
+          <h3 className="text-4xl md:text-5xl font-display font-bold text-corp-black">
+            Sinergias.
           </h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 relative">
-          {/* Connecting line for mobile/tablet */}
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-corp-black/10 lg:hidden"></div>
-
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="relative pl-12 lg:pl-0 lg:px-8 flex flex-col items-start lg:items-center text-left lg:text-center group"
-            >
-              {/* Dot for mobile/tablet */}
-              <div className="absolute left-[21px] top-2 w-2 h-2 rounded-full bg-gold-500 lg:hidden"></div>
-              
-              <div className="text-6xl font-display font-bold text-corp-black/5 mb-6 group-hover:text-gold-500/20 transition-colors">
-                {step.number}
-              </div>
-              
-              <div className="w-full h-px bg-corp-black/10 mb-6 hidden lg:block relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-gold-500 shadow-[0_0_10px_rgba(151,27,47,0.5)]"></div>
-              </div>
-
-              <h4 className="text-gold-500 font-bold uppercase tracking-wider text-xs mb-2">{step.company}</h4>
-              <h5 className="text-xl font-display font-semibold mb-3 text-corp-black">{step.action}</h5>
-              <p className="text-sm text-corp-black/70 leading-relaxed">
-                {step.desc}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-2xl shadow-sm border border-corp-black/5 overflow-hidden"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div className="p-10 md:p-16 flex flex-col justify-center">
+              <h4 className="text-2xl md:text-3xl font-display font-bold text-corp-black mb-6">
+                Cooperación con Radio Río 94.3 FM
+              </h4>
+              <p className="text-corp-black/70 leading-relaxed mb-8 text-lg">
+                Mantenemos una estrecha colaboración con Radio Río 94.3 FM, integrando nuestras capacidades tecnológicas, de seguridad y operativas con su gran alcance en medios de comunicación. Esta sinergia nos permite fortalecer nuestra presencia y ofrecer soluciones conjuntas de alto impacto.
               </p>
-            </motion.div>
-          ))}
-        </div>
+              <div className="inline-flex items-center gap-3">
+                <span className="w-12 h-px bg-gold-500"></span>
+                <span className="text-sm font-bold uppercase tracking-widest text-gold-500">Alianza Estratégica</span>
+              </div>
+            </div>
+            <div className="relative bg-corp-black/5 min-h-[300px] lg:min-h-full flex items-center justify-center p-10">
+              {/* Imagen de fondo representativa */}
+              <img 
+                src="/images/radio-rio-bg.webp" 
+                alt="Estudio de Radio" 
+                className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-multiply"
+                onError={(e) => {
+                  // Fallback si no existe la imagen
+                  e.currentTarget.src = 'https://picsum.photos/seed/radio/800/800?grayscale';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-corp-black/10"></div>
+              
+              {/* Espacio para el logo en PNG */}
+              <div className="relative z-10 bg-white p-8 rounded-2xl shadow-xl border border-corp-black/5 max-w-[250px] w-full aspect-square flex items-center justify-center">
+                <img 
+                  src="/images/radio-rio-logo.png" 
+                  alt="Logo Radio Río 94.3 FM" 
+                  className="max-w-full max-h-full object-contain"
+                  onError={(e) => {
+                    // Fallback visual si no existe el logo aún
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<div class="text-center"><div class="text-4xl mb-2">📻</div><div class="font-bold text-corp-black">Radio Río<br/>94.3 FM</div></div>';
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

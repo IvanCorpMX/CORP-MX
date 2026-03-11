@@ -3,11 +3,13 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Mosaic from './components/Mosaic';
 import Synergy from './components/Synergy';
+import Agreements from './components/Agreements';
 import Turnkey from './components/Turnkey';
 import Philosophy from './components/Philosophy';
 import Team from './components/Team';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 
 export default function App() {
   return (
@@ -17,12 +19,14 @@ export default function App() {
         <Hero />
         <Mosaic />
         <Synergy />
+        <Agreements />
         <Turnkey />
         <Philosophy />
         <Team />
         <CTA />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

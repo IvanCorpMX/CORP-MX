@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-corp-black/10 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
@@ -30,19 +30,10 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-corp-black mb-6">Holding</h4>
             <ul className="space-y-3">
-              <li><a href="#sinergia" className="text-sm text-corp-black/60 hover:text-gold-500 transition-colors">Sinergia Estratégica</a></li>
+              <li><a href="#sinergias" className="text-sm text-corp-black/60 hover:text-gold-500 transition-colors">Sinergias</a></li>
               <li><a href="#filosofia" className="text-sm text-corp-black/60 hover:text-gold-500 transition-colors">Filosofía Corporativa</a></li>
               <li><a href="#equipo" className="text-sm text-corp-black/60 hover:text-gold-500 transition-colors">Equipo Directivo</a></li>
               <li><a href="#contacto" className="text-sm text-corp-black/60 hover:text-gold-500 transition-colors">Contacto</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-corp-black mb-6">Contacto</h4>
-            <ul className="space-y-3">
-              <li className="text-sm text-corp-black/60">Av. Paseo de la Reforma 250, CDMX</li>
-              <li className="text-sm text-corp-black/60">+52 (55) 1234-5678</li>
-              <li className="text-sm text-corp-black/60">contacto@corpmx.com</li>
             </ul>
           </div>
         </div>

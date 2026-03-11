@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
 
 export default function CTA() {
   return (
@@ -12,7 +11,7 @@ export default function CTA() {
           className="w-full h-full object-cover opacity-10"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-transparent to-gray-50"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -21,48 +20,33 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl"
+          className="w-full"
         >
-          <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">Contacto Corporativo</h2>
-          <h3 className="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight text-corp-black">
-            Hablemos de tu <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">proyecto integral.</span>
-          </h3>
-          <p className="text-lg text-corp-black/70 mb-10 font-light max-w-xl">
-            Descubre cómo la sinergia de nuestras cuatro divisiones puede optimizar, proteger y potenciar la operación de tu empresa.
-          </p>
+          <div className="text-center mb-12">
+            <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">Contacto Corporativo</h2>
+            <h3 className="text-4xl md:text-5xl font-display font-bold mb-4 text-corp-black">
+              Agenda tu cita.
+            </h3>
+            <p className="text-lg text-corp-black/70 font-light max-w-2xl mx-auto">
+              Selecciona el horario que mejor se adapte a ti para conversar sobre tu proyecto integral.
+            </p>
+          </div>
 
-          <form className="space-y-4 max-w-md">
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Nombre"
-                className="w-full bg-white border border-corp-black/10 rounded-sm px-4 py-3 text-sm text-corp-black placeholder:text-corp-black/40 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-all shadow-sm"
-              />
-              <input
-                type="text"
-                placeholder="Empresa"
-                className="w-full bg-white border border-corp-black/10 rounded-sm px-4 py-3 text-sm text-corp-black placeholder:text-corp-black/40 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-all shadow-sm"
-              />
-            </div>
-            <input
-              type="email"
-              placeholder="Correo Electrónico"
-              className="w-full bg-white border border-corp-black/10 rounded-sm px-4 py-3 text-sm text-corp-black placeholder:text-corp-black/40 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-all shadow-sm"
-            />
-            <textarea
-              placeholder="¿En qué podemos ayudarte?"
-              rows={4}
-              className="w-full bg-white border border-corp-black/10 rounded-sm px-4 py-3 text-sm text-corp-black placeholder:text-corp-black/40 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-all shadow-sm resize-none"
-            ></textarea>
-            <button
-              type="button"
-              className="w-full px-8 py-4 bg-gold-500 hover:bg-gold-400 text-white font-semibold text-sm uppercase tracking-wider rounded-sm transition-all flex items-center justify-center gap-2 group shadow-md"
-            >
-              Enviar Mensaje
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </form>
+          <div className="bg-white rounded-2xl shadow-xl border border-corp-black/10 overflow-hidden w-full max-w-5xl mx-auto h-[700px] relative">
+            {/* 
+              PARA CAMBIAR EL LINK DE BOOKINGS EN EL FUTURO:
+              Modifica la URL en el atributo 'src' del iframe de abajo.
+            */}
+            <iframe
+              src="https://outlook.office.com/bookwithme/user/d60d482122d6426d8e38f7285ba9b2a7@corp-mx.com?anonymous&ep=plink"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              title="Agenda de Bookings"
+              className="absolute inset-0"
+            ></iframe>
+          </div>
         </motion.div>
       </div>
     </section>

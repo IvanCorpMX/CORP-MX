@@ -16,7 +16,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Empresas', href: '#empresas' },
-    { name: 'Sinergia', href: '#sinergia' },
+    { name: 'Sinergias', href: '#sinergias' },
     { name: 'Filosofía', href: '#filosofia' },
     { name: 'Equipo', href: '#equipo' },
   ];

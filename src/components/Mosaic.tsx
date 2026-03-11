@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Server, ShieldCheck, Zap, Briefcase, ArrowUpRight, X, ExternalLink } from 'lucide-react';
 
@@ -55,65 +55,107 @@ const companies = [
 
 export default function Mosaic() {
   const [selectedCompany, setSelectedCompany] = useState<typeof companies[0] | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-rotate the active mosaic piece
+  useEffect(() => {
+    if (isPaused || selectedCompany) return;
+    
+    const timer = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % companies.length);
+    }, 5000); // Cambia cada 5 segundos
+    
+    return () => clearInterval(timer);
+  }, [isPaused, selectedCompany]);
 
   return (
     <section id="empresas" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16 md:flex justify-between items-end">
+        <div className="mb-12 md:flex justify-between items-end">
           <div className="max-w-2xl">
             <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">El HUB Corporativo</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold text-corp-black">Cuatro pilares. <br/><span className="text-corp-black/40">Un solo frente.</span></h3>
+            <h3 className="text-4xl md:text-5xl font-display font-bold text-corp-black">Empresas que conforman el corporativo.</h3>
           </div>
           <p className="text-corp-black/70 mt-6 md:mt-0 max-w-sm text-sm">
             Nuestras divisiones operan como entidades especializadas que se integran perfectamente para ofrecer soluciones unificadas.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {companies.map((company, index) => (
-            <motion.div
-              key={company.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onClick={() => setSelectedCompany(company)}
-              className="group relative h-[400px] md:h-[450px] rounded-xl overflow-hidden cursor-pointer border border-corp-black/5 shadow-sm hover:shadow-md transition-shadow"
-            >
-              {/* Background Image */}
-              <div className="absolute inset-0 z-0">
+        {/* Dynamic Mosaic Container */}
+        <div 
+          className="flex flex-col lg:flex-row gap-4 h-[600px] lg:h-[500px] w-full"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {companies.map((company, index) => {
+            const isActive = activeIndex === index;
+            
+            return (
+              <div
+                key={company.id}
+                onClick={() => {
+                  if (isActive) setSelectedCompany(company);
+                  else setActiveIndex(index);
+                }}
+                className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-700 ease-in-out ${
+                  isActive ? 'flex-[4] lg:flex-[5]' : 'flex-[1]'
+                }`}
+              >
+                {/* Backgrounds */}
                 <img 
                   src={company.image} 
                   alt={company.name} 
-                  className="w-full h-full object-cover opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
                   referrerPolicy="no-referrer"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-br ${company.color} mix-blend-multiply opacity-50`}></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-transparent"></div>
-              </div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${company.color} mix-blend-multiply transition-opacity duration-700 ${isActive ? 'opacity-60' : 'opacity-80'}`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-t from-corp-black via-corp-black/50 to-transparent transition-opacity duration-700 ${isActive ? 'opacity-90' : 'opacity-70'}`}></div>
 
-              {/* Content */}
-              <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">
-                <div className="flex justify-between items-start mb-4">
-                  <div className={`w-12 h-12 rounded-lg bg-white shadow-sm border border-corp-black/5 flex items-center justify-center ${company.accent}`}>
-                    <company.icon size={24} />
+                {/* Active Content */}
+                <div className={`absolute inset-0 p-6 md:p-8 flex flex-col justify-end transition-opacity duration-500 delay-100 ${isActive ? 'opacity-100 z-10' : 'opacity-0 -z-10'}`}>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center shrink-0 ${company.accent}`}>
+                      <company.icon size={24} />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-widest text-gold-500 mb-1">{company.category}</h4>
+                      <h3 className="text-2xl md:text-4xl font-display font-bold text-white">{company.name}</h3>
+                    </div>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-white shadow-sm border border-corp-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    <ArrowUpRight size={20} className="text-corp-black" />
-                  </div>
-                </div>
-                
-                <h4 className="text-xs font-bold uppercase tracking-widest text-corp-black/50 mb-2">{company.category}</h4>
-                <h3 className="text-3xl font-display font-bold mb-3 text-corp-black group-hover:text-gold-500 transition-colors">{company.name}</h3>
-                
-                <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-300 overflow-hidden">
-                  <p className="text-sm text-corp-black/70 leading-relaxed pt-2 border-t border-corp-black/10">
+                  <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6 max-w-2xl hidden md:block">
                     {company.description}
                   </p>
+                  <div>
+                    <button className="inline-flex items-center gap-2 px-6 py-3 bg-gold-500 hover:bg-gold-400 text-white font-semibold text-sm uppercase tracking-wider rounded-sm transition-all shadow-sm group/btn">
+                      Conocer más
+                      <ArrowUpRight size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Inactive Content (Desktop) */}
+                <div className={`hidden lg:flex absolute inset-0 flex-col items-center justify-end pb-8 transition-opacity duration-500 ${isActive ? 'opacity-0 -z-10' : 'opacity-100 z-10'}`}>
+                  <h3 className="text-xl font-display font-bold text-white tracking-widest uppercase -rotate-90 whitespace-nowrap mb-24 opacity-90">
+                    {company.name}
+                  </h3>
+                  <div className={`w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center shrink-0 ${company.accent}`}>
+                    <company.icon size={24} />
+                  </div>
+                </div>
+
+                {/* Inactive Content (Mobile) */}
+                <div className={`flex lg:hidden absolute inset-0 items-center px-6 gap-4 transition-opacity duration-500 ${isActive ? 'opacity-0 -z-10' : 'opacity-100 z-10'}`}>
+                  <div className={`w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center shrink-0 ${company.accent}`}>
+                    <company.icon size={20} />
+                  </div>
+                  <h3 className="text-lg font-display font-bold text-white tracking-wider uppercase">
+                    {company.name}
+                  </h3>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
