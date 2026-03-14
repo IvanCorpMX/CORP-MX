@@ -70,14 +70,14 @@ export default function Mosaic() {
   }, [isPaused, selectedCompany]);
 
   return (
-    <section id="empresas" className="py-24 bg-white relative">
+    <section id="empresas" className="py-24 bg-white dark:bg-corp-black relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12 md:flex justify-between items-end">
           <div className="max-w-2xl">
             <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">El HUB Corporativo</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold text-corp-black">Empresas que conforman el corporativo.</h3>
+            <h3 className="text-4xl md:text-5xl font-display font-bold text-corp-black dark:text-white">Empresas que conforman el corporativo.</h3>
           </div>
-          <p className="text-corp-black/70 mt-6 md:mt-0 max-w-sm text-sm">
+          <p className="text-corp-black/70 dark:text-white/70 mt-6 md:mt-0 max-w-sm text-sm">
             Nuestras divisiones operan como entidades especializadas que se integran perfectamente para ofrecer soluciones unificadas.
           </p>
         </div>
@@ -174,7 +174,7 @@ export default function Mosaic() {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-white rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col max-h-[90vh]"
+              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl z-50 overflow-hidden flex flex-col max-h-[90vh]"
             >
               <div className="relative h-48 md:h-64 shrink-0">
                 <img 
@@ -188,7 +188,7 @@ export default function Mosaic() {
                 
                 <button 
                   onClick={() => setSelectedCompany(null)}
-                  className="absolute top-4 right-4 w-10 h-10 bg-white/50 backdrop-blur-md rounded-full flex items-center justify-center text-corp-black hover:bg-white transition-colors shadow-sm"
+                  className="absolute top-4 right-4 w-10 h-10 bg-white/50 dark:bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-corp-black dark:text-white hover:bg-white dark:hover:bg-black transition-colors shadow-sm"
                 >
                   <X size={20} />
                 </button>
@@ -196,20 +196,20 @@ export default function Mosaic() {
               
               <div className="p-8 md:p-10 overflow-y-auto">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-14 h-14 rounded-xl bg-white shadow-sm border border-corp-black/5 flex items-center justify-center shrink-0 ${selectedCompany.accent}`}>
+                  <div className={`w-14 h-14 rounded-xl bg-white dark:bg-neutral-800 shadow-sm border border-corp-black/5 dark:border-white/5 flex items-center justify-center shrink-0 ${selectedCompany.accent}`}>
                     <selectedCompany.icon size={28} />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-gold-500 mb-1">{selectedCompany.category}</h4>
-                    <h3 className="text-3xl font-display font-bold text-corp-black">{selectedCompany.name}</h3>
+                    <h3 className="text-3xl font-display font-bold text-corp-black dark:text-white">{selectedCompany.name}</h3>
                   </div>
                 </div>
                 
-                <p className="text-corp-black/70 leading-relaxed mb-8">
+                <p className="text-corp-black/70 dark:text-white/70 leading-relaxed mb-8">
                   {selectedCompany.fullDescription}
                 </p>
                 
-                <div className="flex justify-end pt-6 border-t border-corp-black/10">
+                <div className="flex justify-end pt-6 border-t border-corp-black/10 dark:border-white/10">
                   <a 
                     href={selectedCompany.url} 
                     target="_blank" 

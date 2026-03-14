@@ -13,7 +13,7 @@ export default function Turnkey() {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-white dark:bg-corp-black relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -23,10 +23,10 @@ export default function Turnkey() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">Soluciones Integrales</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-corp-black">
+            <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-corp-black dark:text-white">
               Proyectos Llave en Mano.
             </h3>
-            <p className="text-lg text-corp-black/70 mb-8 font-light leading-relaxed">
+            <p className="text-lg text-corp-black/70 dark:text-white/70 mb-8 font-light leading-relaxed">
               Diseñamos, implementamos y administramos proyectos tecnológicos complejos desde cero. Nuestro modelo de holding nos permite ofrecer una solución completa sin depender de terceros.
             </p>
 
@@ -34,14 +34,14 @@ export default function Turnkey() {
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <CheckCircle2 size={20} className="text-gold-500 shrink-0" />
-                  <span className="text-sm text-corp-black/80">{benefit}</span>
+                  <span className="text-sm text-corp-black/80 dark:text-white/80">{benefit}</span>
                 </div>
               ))}
             </div>
 
             <div className="mt-10">
               <a
-                href="#contacto"
+                href="/#contacto"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white font-semibold text-sm uppercase tracking-wider rounded-sm transition-all"
               >
                 Solicitar Asesoría
@@ -66,9 +66,9 @@ export default function Turnkey() {
               <div className="absolute inset-0 bg-gradient-to-tr from-white/90 via-white/20 to-transparent"></div>
               
               {/* Floating badge */}
-              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md border border-corp-black/10 p-6 rounded-xl max-w-xs shadow-lg">
+              <div className="absolute bottom-6 left-6 bg-white/90 dark:bg-corp-black/90 backdrop-blur-md border border-corp-black/10 dark:border-white/10 p-6 rounded-xl max-w-xs shadow-lg">
                 <div className="text-3xl font-display font-bold text-gold-500 mb-1">100%</div>
-                <div className="text-sm font-medium text-corp-black/80 uppercase tracking-wider">Integración Operativa</div>
+                <div className="text-sm font-medium text-corp-black/80 dark:text-white/80 uppercase tracking-wider">Integración Operativa</div>
               </div>
             </div>
             

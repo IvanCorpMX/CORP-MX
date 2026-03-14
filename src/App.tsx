@@ -1,30 +1,19 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Mosaic from './components/Mosaic';
-import Synergy from './components/Synergy';
-import Agreements from './components/Agreements';
-import Turnkey from './components/Turnkey';
-import Philosophy from './components/Philosophy';
-import Team from './components/Team';
-import CTA from './components/CTA';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import Home from './pages/Home';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-corp-black font-sans selection:bg-gold-500 selection:text-white">
+    <div className="min-h-screen bg-white dark:bg-corp-black text-corp-black dark:text-white font-sans selection:bg-gold-500 selection:text-white transition-colors duration-300">
       <Navbar />
-      <main>
-        <Hero />
-        <Mosaic />
-        <Synergy />
-        <Agreements />
-        <Turnkey />
-        <Philosophy />
-        <Team />
-        <CTA />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/aviso-de-privacidad" element={<PrivacyPolicy />} />
+      </Routes>
       <Footer />
       <WhatsAppButton />
     </div>

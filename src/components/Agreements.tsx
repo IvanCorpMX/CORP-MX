@@ -19,11 +19,11 @@ export default function Agreements() {
   ];
 
   return (
-    <section className="py-24 bg-white relative border-t border-corp-black/5">
+    <section className="py-24 bg-white dark:bg-corp-black relative border-t border-corp-black/5 dark:border-white/5 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">Red de Valor</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-corp-black">Convenios Institucionales.</h3>
+          <h3 className="text-4xl md:text-5xl font-display font-bold text-corp-black dark:text-white">Convenios Institucionales.</h3>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -34,10 +34,10 @@ export default function Agreements() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.2 }}
-              className="p-8 md:p-10 rounded-2xl border border-corp-black/10 bg-gray-50 hover:border-gold-500/50 hover:shadow-md transition-all flex flex-col sm:flex-row gap-6 group"
+              className="p-8 md:p-10 rounded-2xl border border-corp-black/10 dark:border-white/10 bg-gray-50 dark:bg-neutral-800/50 hover:border-gold-500/50 dark:hover:border-gold-500/50 hover:shadow-md transition-all flex flex-col sm:flex-row gap-6 group"
             >
               <div className="shrink-0">
-                <div className="w-20 h-20 rounded-xl bg-white shadow-sm border border-corp-black/5 flex items-center justify-center group-hover:border-gold-500/30 transition-colors p-3 relative overflow-hidden">
+                <div className="w-20 h-20 rounded-xl bg-white dark:bg-neutral-800 shadow-sm border border-corp-black/5 dark:border-white/5 flex items-center justify-center group-hover:border-gold-500/30 transition-colors p-3 relative overflow-hidden">
                   <img 
                     src={agreement.logo} 
                     alt={`Logo ${agreement.partner}`} 
@@ -51,13 +51,13 @@ export default function Agreements() {
                 </div>
               </div>
               <div>
-                <h4 className="text-xl font-display font-bold text-corp-black mb-2">{agreement.partner}</h4>
+                <h4 className="text-xl font-display font-bold text-corp-black dark:text-white mb-2">{agreement.partner}</h4>
                 <div className="inline-block px-3 py-1 bg-gold-500/10 rounded-full mb-4">
                   <p className="text-xs font-bold uppercase tracking-wider text-gold-500">
                     Con: {agreement.company}
                   </p>
                 </div>
-                <p className="text-sm text-corp-black/70 leading-relaxed">{agreement.description}</p>
+                <p className="text-sm text-corp-black/70 dark:text-white/70 leading-relaxed">{agreement.description}</p>
               </div>
             </motion.div>
           ))}
