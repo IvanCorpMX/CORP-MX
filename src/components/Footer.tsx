@@ -31,11 +31,18 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-widest text-corp-black dark:text-white mb-6">Holding</h4>
-            <ul className="space-y-3">
-              <li><a href="/#sinergias" className="text-sm text-corp-black/60 dark:text-white/60 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">Sinergias</a></li>
-              <li><a href="/#filosofia" className="text-sm text-corp-black/60 dark:text-white/60 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">Filosofía Corporativa</a></li>
-            </ul>
+            <h4 className="text-xs font-bold uppercase tracking-widest text-corp-black dark:text-white mb-6">Certificaciones</h4>
+            <div className="p-4 bg-gray-50 dark:bg-white/5 rounded-xl border border-corp-black/5 dark:border-white/5 inline-flex items-center gap-4">
+              <img 
+                src="/images/iso27001.png" 
+                alt="Certificación ISO 27001" 
+                className="h-12 w-auto object-contain dark:brightness-0 dark:invert transition-all"
+              />
+              <div className="text-xs text-corp-black/60 dark:text-white/60 text-left">
+                <span className="font-bold text-corp-black dark:text-white block">ISO/IEC 27001</span>
+                Gestión de Seguridad de la Información
+              </div>
+            </div>
           </div>
         </div>
 
