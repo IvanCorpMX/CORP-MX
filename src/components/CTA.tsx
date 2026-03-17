@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 
 export default function CTA() {
+  const [loadIframe, setLoadIframe] = useState(false);
+
   return (
     <section id="contacto" className="py-24 relative overflow-hidden bg-gray-50 dark:bg-neutral-900 transition-colors duration-300">
       <div className="absolute inset-0 z-0">
@@ -18,7 +20,8 @@ export default function CTA() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "200px" }}
+          onViewportEnter={() => setLoadIframe(true)}
           transition={{ duration: 0.6 }}
           className="w-full"
         >
@@ -32,20 +35,28 @@ export default function CTA() {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-neutral-800 rounded-2xl shadow-xl border border-corp-black/10 dark:border-white/10 overflow-hidden w-full max-w-5xl mx-auto h-[700px] relative">
+          <div className="bg-white dark:bg-neutral-800 rounded-2xl shadow-xl border border-corp-black/10 dark:border-white/10 overflow-hidden w-full max-w-5xl mx-auto h-[700px] relative flex items-center justify-center">
             {/* 
               PARA CAMBIAR EL LINK DE BOOKINGS EN EL FUTURO:
               Modifica la URL en el atributo 'src' del iframe de abajo.
             */}
-            <iframe
-              src="https://outlook.office.com/bookwithme/user/d60d482122d6426d8e38f7285ba9b2a7@corp-mx.com?anonymous&ep=plink"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              title="Agenda de Bookings"
-              className="absolute inset-0"
-            ></iframe>
+            {!loadIframe && (
+              <div className="text-corp-black/50 dark:text-white/50 animate-pulse">
+                Cargando agenda...
+              </div>
+            )}
+            {loadIframe && (
+              <iframe
+                src="https://outlook.office.com/bookwithme/user/d60d482122d6426d8e38f7285ba9b2a7@corp-mx.com?anonymous&ep=plink"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                title="Agenda de Bookings"
+                className="absolute inset-0"
+                loading="lazy"
+              ></iframe>
+            )}
           </div>
         </motion.div>
       </div>
