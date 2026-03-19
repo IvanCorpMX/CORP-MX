@@ -23,10 +23,10 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-corp-black dark:text-white mb-6">Empresas</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-sm text-corp-black/60 dark:text-white/60 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">IB México (TI)</a></li>
-              <li><a href="#" className="text-sm text-corp-black/60 dark:text-white/60 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">R2A México (Seguridad)</a></li>
-              <li><a href="#" className="text-sm text-corp-black/60 dark:text-white/60 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">S3S México (Energía)</a></li>
-              <li><a href="#" className="text-sm text-corp-black/60 dark:text-white/60 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">G4W Consultores (Admin)</a></li>
+              <li><a href="#" className="text-sm text-corp-black/60 dark:text-white/60 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">Inside Business México</a></li>
+              <li><a href="#" className="text-sm text-corp-black/60 dark:text-white/60 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">R2A México</a></li>
+              <li><a href="#" className="text-sm text-corp-black/60 dark:text-white/60 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">S3S México</a></li>
+              <li><a href="#" className="text-sm text-corp-black/60 dark:text-white/60 hover:text-gold-500 dark:hover:text-gold-500 transition-colors">G4W Consultores</a></li>
             </ul>
           </div>
 
