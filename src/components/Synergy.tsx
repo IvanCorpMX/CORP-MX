@@ -1,7 +1,44 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Synergy() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const synergies = [
+    {
+      title: 'Cooperación con Radio Río 94.3 FM',
+      description: 'Mantenemos una estrecha colaboración con Radio Río 94.3 FM, integrando nuestras capacidades tecnológicas, de seguridad y operativas con su gran alcance en medios de comunicación. Esta sinergia nos permite fortalecer nuestra presencia y ofrecer soluciones conjuntas de alto impacto.',
+      bgImage: '/images/radio-rio-bg.webp',
+      logo: '/images/radio-rio-logo.png',
+      fallbackLogo: '📻',
+      fallbackText: 'Radio Río<br/>94.3 FM'
+    },
+    {
+      title: 'CRG Seguros y Fianzas',
+      description: 'Alianza estratégica para la gestión integral de riesgos, aseguramiento corporativo y optimización de recursos, brindando a nuestros clientes la tranquilidad y respaldo necesarios para sus operaciones.',
+      bgImage: '/images/crg-seguros-bg.webp',
+      logo: '/images/logo-crg-seguros.png',
+      fallbackLogo: '🛡️',
+      fallbackText: 'CRG Seguros<br/>y Fianzas'
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % synergies.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + synergies.length) % synergies.length);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 8000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="sinergias" className="py-24 bg-gray-50 dark:bg-neutral-900 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -12,55 +49,88 @@ export default function Synergy() {
           </h3>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-corp-black/5 dark:border-white/5 overflow-hidden"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="p-10 md:p-16 flex flex-col justify-center">
-              <h4 className="text-2xl md:text-3xl font-display font-bold text-corp-black dark:text-white mb-6">
-                Cooperación con Radio Río 94.3 FM
-              </h4>
-              <p className="text-corp-black/70 dark:text-white/70 leading-relaxed mb-8 text-lg">
-                Mantenemos una estrecha colaboración con Radio Río 94.3 FM, integrando nuestras capacidades tecnológicas, de seguridad y operativas con su gran alcance en medios de comunicación. Esta sinergia nos permite fortalecer nuestra presencia y ofrecer soluciones conjuntas de alto impacto.
-              </p>
-              <div className="inline-flex items-center gap-3">
-                <span className="w-12 h-px bg-gold-500"></span>
-                <span className="text-sm font-bold uppercase tracking-widest text-gold-500">Alianza Estratégica</span>
-              </div>
-            </div>
-            <div className="relative bg-corp-black/5 min-h-[300px] lg:min-h-full flex items-center justify-center p-10">
-              {/* Imagen de fondo representativa */}
-              <img 
-                src="/images/radio-rio-bg.webp" 
-                alt="Estudio de Radio" 
-                className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-multiply"
-                onError={(e) => {
-                  // Fallback si no existe la imagen
-                  e.currentTarget.src = 'https://picsum.photos/seed/radio/800/800?grayscale';
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-corp-black/10"></div>
-              
-              {/* Espacio para el logo en PNG */}
-              <div className="relative z-10 bg-white dark:bg-neutral-900 p-8 rounded-2xl shadow-xl border border-corp-black/5 dark:border-white/5 max-w-[250px] w-full aspect-square flex items-center justify-center">
-                <img 
-                  src="/images/radio-rio-logo.png" 
-                  alt="Logo Radio Río 94.3 FM" 
-                  className="max-w-full max-h-full object-contain"
-                  onError={(e) => {
-                    // Fallback visual si no existe el logo aún
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.innerHTML = '<div class="text-center"><div class="text-4xl mb-2">📻</div><div class="font-bold text-corp-black">Radio Río<br/>94.3 FM</div></div>';
-                  }}
-                />
-              </div>
-            </div>
+        <div className="relative">
+          <div className="overflow-hidden rounded-2xl shadow-sm border border-corp-black/5 dark:border-white/5 bg-white dark:bg-neutral-800">
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={currentIndex}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5 }}
+                className="grid grid-cols-1 lg:grid-cols-2"
+              >
+                <div className="p-10 md:p-16 flex flex-col justify-center min-h-[400px]">
+                  <h4 className="text-2xl md:text-3xl font-display font-bold text-corp-black dark:text-white mb-6">
+                    {synergies[currentIndex].title}
+                  </h4>
+                  <p className="text-corp-black/70 dark:text-white/70 leading-relaxed mb-8 text-lg">
+                    {synergies[currentIndex].description}
+                  </p>
+                  <div className="inline-flex items-center gap-3 mt-auto">
+                    <span className="w-12 h-px bg-gold-500"></span>
+                    <span className="text-sm font-bold uppercase tracking-widest text-gold-500">Alianza Estratégica</span>
+                  </div>
+                </div>
+                <div className="relative bg-corp-black/5 min-h-[300px] lg:min-h-full flex items-center justify-center p-10">
+                  {/* Imagen de fondo representativa */}
+                  <img 
+                    src={synergies[currentIndex].bgImage} 
+                    alt={synergies[currentIndex].title} 
+                    className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-multiply"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://picsum.photos/seed/business/800/800?grayscale';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent to-corp-black/10"></div>
+                  
+                  {/* Espacio para el logo en PNG */}
+                  <div className="relative z-10 bg-white dark:bg-neutral-900 p-8 rounded-2xl shadow-xl border border-corp-black/5 dark:border-white/5 max-w-[250px] w-full aspect-square flex items-center justify-center">
+                    <img 
+                      src={synergies[currentIndex].logo} 
+                      alt={`Logo ${synergies[currentIndex].title}`} 
+                      className="max-w-full max-h-full object-contain"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.parentElement!.innerHTML = `<div class="text-center"><div class="text-4xl mb-2">${synergies[currentIndex].fallbackLogo}</div><div class="font-bold text-corp-black dark:text-white">${synergies[currentIndex].fallbackText}</div></div>`;
+                      }}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
-        </motion.div>
+
+          {/* Controles del carrusel */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            <button 
+              onClick={prevSlide}
+              className="p-3 rounded-full bg-white dark:bg-neutral-800 border border-corp-black/10 dark:border-white/10 text-corp-black dark:text-white hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-colors"
+              aria-label="Anterior sinergia"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <div className="flex gap-2">
+              {synergies.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    idx === currentIndex ? 'bg-gold-500' : 'bg-corp-black/20 dark:bg-white/20'
+                  }`}
+                  aria-label={`Ir a sinergia ${idx + 1}`}
+                />
+              ))}
+            </div>
+            <button 
+              onClick={nextSlide}
+              className="p-3 rounded-full bg-white dark:bg-neutral-800 border border-corp-black/10 dark:border-white/10 text-corp-black dark:text-white hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-colors"
+              aria-label="Siguiente sinergia"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   );

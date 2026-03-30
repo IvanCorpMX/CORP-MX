@@ -5,6 +5,7 @@ import Mosaic from '../components/Mosaic';
 import Synergy from '../components/Synergy';
 import Agreements from '../components/Agreements';
 import Turnkey from '../components/Turnkey';
+import Certification from '../components/Certification';
 import Philosophy from '../components/Philosophy';
 import CTA from '../components/CTA';
 
@@ -30,6 +31,7 @@ export default function Home() {
       <Synergy />
       <Agreements />
       <Turnkey />
+      <Certification />
       <Philosophy />
       <CTA />
     </main>

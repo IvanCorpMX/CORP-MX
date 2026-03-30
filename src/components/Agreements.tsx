@@ -11,10 +11,10 @@ export default function Agreements() {
       logo: '/images/logo-hoteles-tabasco.png'
     },
     {
-      partner: 'CRG Seguros y Fianzas',
-      company: 'G4W Consultores',
-      description: 'Alianza estratégica para la gestión integral de riesgos, aseguramiento corporativo y optimización de recursos.',
-      logo: '/images/logo-crg-seguros.png'
+      partner: 'COPARMEX Chiapas',
+      company: 'Inside Business México',
+      description: 'Alianza estratégica para impulsar el desarrollo tecnológico y la competitividad empresarial en el estado de Chiapas.',
+      logo: '/images/logo-coparmex-chiapas.png'
     }
   ];
 
