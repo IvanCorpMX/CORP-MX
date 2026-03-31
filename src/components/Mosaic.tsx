@@ -188,7 +188,7 @@ export default function Mosaic() {
                   referrerPolicy="no-referrer"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-br ${selectedCompany.color} mix-blend-multiply opacity-40`}></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-neutral-900 via-white/50 dark:via-neutral-900/50 to-transparent"></div>
                 
                 <button 
                   onClick={() => setSelectedCompany(null)}
