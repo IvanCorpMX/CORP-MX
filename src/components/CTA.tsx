@@ -47,7 +47,7 @@ export default function CTA() {
             )}
             {loadIframe && (
               <iframe
-                src="https://outlook.office.com/bookwithme/user/d60d482122d6426d8e38f7285ba9b2a7@corp-mx.com?anonymous&ep=plink"
+                src="https://outlook.office.com/bookwithme/user/8e5069406600444bbe280597de906d71%40corp-mx.com/meetingtype/zowuNjan7UaUvoWwxgjNEg2?anonymous&ismsaljsauthenabled"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
