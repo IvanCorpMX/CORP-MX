@@ -13,7 +13,8 @@ const companies = [
     icon: Server,
     color: 'from-blue-900/20 to-white',
     accent: 'text-blue-600',
-    image: '/images/ib-mexico.webp'
+    image: '/images/ib-mexico.webp',
+    logo: '/images/logo-ib-mexico.png'
   },
   {
     id: 'r2a',
@@ -25,7 +26,8 @@ const companies = [
     icon: ShieldCheck,
     color: 'from-red-900/20 to-white',
     accent: 'text-red-600',
-    image: '/images/r2a-mexico.webp'
+    image: '/images/r2a-mexico.webp',
+    logo: '/images/logo-r2a-mexico.png'
   },
   {
     id: 's3s',
@@ -37,7 +39,8 @@ const companies = [
     icon: Zap,
     color: 'from-amber-900/20 to-white',
     accent: 'text-amber-600',
-    image: '/images/s3s-mexico.webp'
+    image: '/images/s3s-mexico.webp',
+    logo: '/images/logo-s3s-mexico.png'
   },
   {
     id: 'g4w',
@@ -49,7 +52,8 @@ const companies = [
     icon: Briefcase,
     color: 'from-emerald-900/20 to-white',
     accent: 'text-emerald-600',
-    image: '/images/g4w-consultores.webp'
+    image: '/images/g4w-consultores.webp',
+    logo: '/images/logo-g4w-consultores.png'
   }
 ];
 
@@ -196,8 +200,17 @@ export default function Mosaic() {
               
               <div className="p-8 md:p-10 overflow-y-auto">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-14 h-14 rounded-xl bg-white dark:bg-neutral-800 shadow-sm border border-corp-black/5 dark:border-white/5 flex items-center justify-center shrink-0 ${selectedCompany.accent}`}>
-                    <selectedCompany.icon size={28} />
+                  <div className={`w-16 h-16 rounded-xl bg-white dark:bg-neutral-800 shadow-sm border border-corp-black/5 dark:border-white/5 flex items-center justify-center shrink-0 p-2`}>
+                    <img 
+                      src={selectedCompany.logo} 
+                      alt={`Logo ${selectedCompany.name}`} 
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                    <selectedCompany.icon size={28} className={`hidden ${selectedCompany.accent}`} />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-gold-500 mb-1">{selectedCompany.category}</h4>
