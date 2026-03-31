@@ -200,7 +200,7 @@ export default function Mosaic() {
               
               <div className="p-8 md:p-10 overflow-y-auto">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-16 h-16 rounded-xl bg-white dark:bg-neutral-800 shadow-sm border border-corp-black/5 dark:border-white/5 flex items-center justify-center shrink-0 p-2`}>
+                  <div className={`w-16 h-16 rounded-xl bg-white shadow-sm border border-corp-black/10 flex items-center justify-center shrink-0 p-2`}>
                     <img 
                       src={selectedCompany.logo} 
                       alt={`Logo ${selectedCompany.name}`} 
