@@ -3,24 +3,24 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-corp-black border-t border-corp-black/10 dark:border-white/10 pt-16 pb-8 transition-colors duration-300">
+    <footer className="bg-white dark:bg-corp-black border-t border-corp-black/10 dark:border-white/10 py-8 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
           {/* Brand */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-3">
-            <div className="flex items-center gap-2 mb-6">
+          <div className="flex flex-col items-center md:items-start">
+            <div className="flex items-center gap-2 mb-4">
               {/* Light mode logo */}
-              <img src="/images/logo1.png" alt="Corp-MX Logo" className="h-12 w-auto object-contain dark:hidden" />
+              <img src="/images/logo1.png" alt="Corp-MX Logo" className="h-10 w-auto object-contain dark:hidden" />
               {/* Dark mode logo */}
-              <img src="/images/logo2.png" alt="Corp-MX Logo" className="h-12 w-auto object-contain hidden dark:block" />
+              <img src="/images/logo2.png" alt="Corp-MX Logo" className="h-10 w-auto object-contain hidden dark:block" />
             </div>
-            <p className="text-sm text-corp-black/60 dark:text-white/60 leading-relaxed mb-6 max-w-xl">
+            <p className="text-sm text-corp-black/60 dark:text-white/60 leading-relaxed max-w-md text-center md:text-left">
               Un ecosistema empresarial que protege, conecta y respalda tu operación a través de soluciones integrales.
             </p>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-corp-black/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-6 border-t border-corp-black/10 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-corp-black/50 dark:text-white/50">
             &copy; {new Date().getFullYear()} Corp-MX Holding. Todos los derechos reservados.
           </p>

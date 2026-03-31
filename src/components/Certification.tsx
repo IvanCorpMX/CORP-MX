@@ -19,7 +19,7 @@ export default function Certification() {
           className="max-w-4xl mx-auto bg-gray-50 dark:bg-neutral-800/50 rounded-3xl p-8 md:p-12 border border-corp-black/10 dark:border-white/10 flex flex-col md:flex-row items-center gap-10"
         >
           <div className="shrink-0 relative">
-            <div className="w-40 h-40 rounded-full bg-white dark:bg-neutral-800 shadow-xl border border-corp-black/5 dark:border-white/5 flex items-center justify-center p-6 relative z-10">
+            <div className="w-64 h-32 rounded-2xl bg-white dark:bg-neutral-800 shadow-xl border border-corp-black/5 dark:border-white/5 flex items-center justify-center p-6 relative z-10">
               <img 
                 src="/images/iso27001.png" 
                 alt="Certificación ISO 27001" 
@@ -32,7 +32,7 @@ export default function Certification() {
               <ShieldCheck className="text-gold-500 hidden" size={64} />
             </div>
             {/* Decorative background circle */}
-            <div className="absolute inset-0 bg-gold-500/20 rounded-full blur-2xl -z-10 scale-150"></div>
+            <div className="absolute inset-0 bg-gold-500/20 rounded-3xl blur-2xl -z-10 scale-125"></div>
           </div>
           
           <div className="text-center md:text-left">

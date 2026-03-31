@@ -6,13 +6,13 @@ export default function Agreements() {
   const agreements = [
     {
       partner: 'Asociación Mexicana de Hoteles y Moteles de Tabasco, A.C.',
-      company: 'Inside Business Mexico',
+      company: 'Inside Business Mexico (IB México)',
       description: 'Convenio de colaboración tecnológica para fortalecer la infraestructura de TI y conectividad en el sector hotelero de la región.',
       logo: '/images/logo-hoteles-tabasco.png'
     },
     {
       partner: 'COPARMEX Chiapas',
-      company: 'Inside Business México',
+      company: 'Inside Business Mexico (IB México)',
       description: 'Alianza estratégica para impulsar el desarrollo tecnológico y la competitividad empresarial en el estado de Chiapas.',
       logo: '/images/logo-coparmex-chiapas.png'
     }
