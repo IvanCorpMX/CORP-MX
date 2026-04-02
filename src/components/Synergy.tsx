@@ -24,7 +24,7 @@ export default function Synergy() {
     },
     {
       title: 'Express by Sistel',
-      description: 'Alianza estratégica para la provisión de planes de renta y equipos celulares, fortaleciendo nuestra oferta de telecomunicaciones y conectividad.',
+      description: 'Alianza estratégica enfocada en soluciones de movilidad de voz y datos a nivel empresarial, apalancadas en la infraestructura del principal carrier móvil de México.\nA través de la sinergia Express by Sistel, integramos servicios de conectividad móvil confiables, escalables y de alta cobertura, fortaleciendo la comunicación operativa de nuestros clientes.',
       bgImage: '/images/express-sistel-bg.webp',
       logo: '/images/logo-express-sistel.png',
       fallbackLogo: '📱',
