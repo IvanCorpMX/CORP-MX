@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -17,6 +18,19 @@ export default function Footer() {
             <p className="text-sm text-corp-black/60 dark:text-white/60 leading-relaxed max-w-md text-center md:text-left">
               Un ecosistema empresarial que protege, conecta y respalda tu operación a través de soluciones integrales.
             </p>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-4">
+            <a href="https://www.facebook.com/corpmxoficial" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center text-corp-black/70 dark:text-white/70 hover:bg-gold-500 hover:text-white dark:hover:bg-gold-500 dark:hover:text-white transition-colors">
+              <Facebook size={20} />
+            </a>
+            <a href="https://www.instagram.com/corp.mx/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center text-corp-black/70 dark:text-white/70 hover:bg-gold-500 hover:text-white dark:hover:bg-gold-500 dark:hover:text-white transition-colors">
+              <Instagram size={20} />
+            </a>
+            <a href="https://www.linkedin.com/in/corp-mx/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center text-corp-black/70 dark:text-white/70 hover:bg-gold-500 hover:text-white dark:hover:bg-gold-500 dark:hover:text-white transition-colors">
+              <Linkedin size={20} />
+            </a>
           </div>
         </div>
 
