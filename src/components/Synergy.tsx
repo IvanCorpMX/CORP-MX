@@ -21,6 +21,14 @@ export default function Synergy() {
       logo: '/images/logo-crg-seguros.png',
       fallbackLogo: '🛡️',
       fallbackText: 'CRG Seguros<br/>y Fianzas'
+    },
+    {
+      title: 'Express by Sistel',
+      description: 'Alianza estratégica para la provisión de planes de renta y equipos celulares, fortaleciendo nuestra oferta de telecomunicaciones y conectividad.',
+      bgImage: '/images/express-sistel-bg.webp',
+      logo: '/images/logo-express-sistel.png',
+      fallbackLogo: '📱',
+      fallbackText: 'Express by<br/>Sistel'
     }
   ];
 
