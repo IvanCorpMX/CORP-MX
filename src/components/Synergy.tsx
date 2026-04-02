@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Synergy() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const synergies = [
     {
@@ -41,11 +42,13 @@ export default function Synergy() {
   };
 
   useEffect(() => {
+    if (isHovered) return;
+
     const timer = setInterval(() => {
       nextSlide();
     }, 8000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isHovered]);
 
   return (
     <section id="sinergias" className="py-24 bg-gray-50 dark:bg-neutral-900 relative overflow-hidden transition-colors duration-300">
@@ -57,7 +60,11 @@ export default function Synergy() {
           </h3>
         </div>
 
-        <div className="relative">
+        <div 
+          className="relative"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <div className="overflow-hidden rounded-2xl shadow-sm border border-corp-black/5 dark:border-white/5 bg-white dark:bg-neutral-800">
             <AnimatePresence mode="wait">
               <motion.div 
