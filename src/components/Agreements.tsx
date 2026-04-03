@@ -25,7 +25,7 @@ export default function Agreements() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">Red de Valor</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-corp-black dark:text-white">Convenios Institucionales.</h3>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-corp-black dark:text-white">Convenios Institucionales.</h2>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -43,8 +43,9 @@ export default function Agreements() {
                 <div className="w-16 h-16 rounded-xl bg-white shadow-sm border border-corp-black/10 flex items-center justify-center p-2 relative overflow-hidden">
                   <img 
                     src={agreement.companyLogo} 
-                    alt={`Logo ${agreement.company}`} 
+                    alt={`Logotipo de ${agreement.company} - Soluciones estratégicas`} 
                     className="w-full h-full object-contain relative z-10"
+                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
                     }}
@@ -57,8 +58,9 @@ export default function Agreements() {
                 <div className="w-16 h-16 rounded-xl bg-white shadow-sm border border-corp-black/10 flex items-center justify-center p-2 relative overflow-hidden">
                   <img 
                     src={agreement.logo} 
-                    alt={`Logo ${agreement.partner}`} 
+                    alt={`Logotipo de ${agreement.partner} - Convenio institucional`} 
                     className="w-full h-full object-contain relative z-10"
+                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
                     }}
@@ -66,7 +68,7 @@ export default function Agreements() {
                 </div>
               </div>
               <div>
-                <h4 className="text-xl font-display font-bold text-corp-black dark:text-white mb-2">{agreement.partner}</h4>
+                <h3 className="text-xl font-display font-bold text-corp-black dark:text-white mb-2">{agreement.partner}</h3>
                 <div className="inline-block px-3 py-1 bg-gold-500/10 rounded-full mb-4">
                   <p className="text-xs font-bold uppercase tracking-wider text-gold-500">
                     Con: {agreement.company}

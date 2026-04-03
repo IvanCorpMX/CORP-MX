@@ -55,9 +55,9 @@ export default function Synergy() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">Alianzas Estratégicas</h2>
-          <h3 className="text-4xl md:text-5xl font-display font-bold text-corp-black dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-corp-black dark:text-white">
             Sinergias.
-          </h3>
+          </h2>
         </div>
 
         <div 
@@ -76,9 +76,9 @@ export default function Synergy() {
                 className="grid grid-cols-1 lg:grid-cols-2"
               >
                 <div className="p-10 md:p-16 flex flex-col justify-center min-h-[400px]">
-                  <h4 className="text-2xl md:text-3xl font-display font-bold text-corp-black dark:text-white mb-6">
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-corp-black dark:text-white mb-6">
                     {synergies[currentIndex].title}
-                  </h4>
+                  </h3>
                   <p className="text-corp-black/70 dark:text-white/70 leading-relaxed mb-8 text-lg">
                     {synergies[currentIndex].description}
                   </p>
@@ -91,8 +91,9 @@ export default function Synergy() {
                   {/* Imagen de fondo representativa */}
                   <img 
                     src={synergies[currentIndex].bgImage} 
-                    alt={synergies[currentIndex].title} 
+                    alt={`Sinergia corporativa con ${synergies[currentIndex].title} en el Sureste de México`} 
                     className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-multiply"
+                    loading="lazy"
                     onError={(e) => {
                       e.currentTarget.src = 'https://picsum.photos/seed/business/800/800?grayscale';
                     }}
@@ -103,8 +104,9 @@ export default function Synergy() {
                   <div className="relative z-10 bg-white dark:bg-neutral-900 p-8 rounded-2xl shadow-xl border border-corp-black/5 dark:border-white/5 max-w-[250px] w-full aspect-square flex items-center justify-center">
                     <img 
                       src={synergies[currentIndex].logo} 
-                      alt={`Logo ${synergies[currentIndex].title}`} 
+                      alt={`Logotipo oficial de ${synergies[currentIndex].title}`} 
                       className="max-w-full max-h-full object-contain"
+                      loading="lazy"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                         e.currentTarget.parentElement!.innerHTML = `<div class="text-center"><div class="text-4xl mb-2">${synergies[currentIndex].fallbackLogo}</div><div class="font-bold text-corp-black dark:text-white">${synergies[currentIndex].fallbackText}</div></div>`;

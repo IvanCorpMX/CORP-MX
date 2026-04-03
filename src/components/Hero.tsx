@@ -13,6 +13,7 @@ export default function Hero() {
           alt="Corporate Building"
           className="w-full h-full object-cover opacity-20"
           referrerPolicy="no-referrer"
+          fetchPriority="high"
         />
         {/* Subtle gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 dark:via-corp-black/80 to-white dark:to-corp-black z-10 transition-colors duration-300"></div>

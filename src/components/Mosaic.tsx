@@ -79,7 +79,7 @@ export default function Mosaic() {
         <div className="mb-12 md:flex justify-between items-end">
           <div className="max-w-2xl">
             <h2 className="text-sm font-medium text-gold-500 uppercase tracking-widest mb-3">El HUB Corporativo</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold text-corp-black dark:text-white">Empresas que conforman el corporativo.</h3>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-corp-black dark:text-white">Empresas que conforman el corporativo.</h2>
           </div>
           <p className="text-corp-black/70 dark:text-white/70 mt-6 md:mt-0 max-w-sm text-sm">
             Nuestras divisiones operan como entidades especializadas que se integran perfectamente para ofrecer soluciones unificadas.
@@ -109,9 +109,10 @@ export default function Mosaic() {
                 {/* Backgrounds */}
                 <img 
                   src={company.image} 
-                  alt={company.name} 
+                  alt={`Instalaciones y servicios de ${company.name} en Villahermosa`} 
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-br ${company.color} mix-blend-multiply transition-opacity duration-700 ${isActive ? 'opacity-60' : 'opacity-80'}`}></div>
                 <div className={`absolute inset-0 bg-gradient-to-t from-corp-black via-corp-black/50 to-transparent transition-opacity duration-700 ${isActive ? 'opacity-90' : 'opacity-70'}`}></div>
@@ -124,7 +125,7 @@ export default function Mosaic() {
                     </div>
                     <div>
                       <h4 className="text-xs font-bold uppercase tracking-widest text-gold-500 mb-1">{company.category}</h4>
-                      <h3 className="text-2xl md:text-4xl font-display font-bold text-white">{company.name}</h3>
+                      <h2 className="text-2xl md:text-4xl font-display font-bold text-white">{company.name}</h2>
                     </div>
                   </div>
                   <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6 max-w-2xl hidden md:block">
@@ -140,9 +141,9 @@ export default function Mosaic() {
 
                 {/* Inactive Content (Desktop) */}
                 <div className={`hidden lg:flex absolute inset-0 flex-col items-center justify-end pb-8 transition-opacity duration-500 ${isActive ? 'opacity-0 -z-10' : 'opacity-100 z-10'}`}>
-                  <h3 className="text-xl font-display font-bold text-white tracking-widest uppercase -rotate-90 whitespace-nowrap mb-24 opacity-90">
+                  <h2 className="text-xl font-display font-bold text-white tracking-widest uppercase -rotate-90 whitespace-nowrap mb-24 opacity-90">
                     {company.name}
-                  </h3>
+                  </h2>
                   <div className={`w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center shrink-0 ${company.accent}`}>
                     <company.icon size={24} />
                   </div>
@@ -153,9 +154,9 @@ export default function Mosaic() {
                   <div className={`w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center shrink-0 ${company.accent}`}>
                     <company.icon size={20} />
                   </div>
-                  <h3 className="text-lg font-display font-bold text-white tracking-wider uppercase">
+                  <h2 className="text-lg font-display font-bold text-white tracking-wider uppercase">
                     {company.name}
-                  </h3>
+                  </h2>
                 </div>
               </div>
             );
@@ -183,9 +184,10 @@ export default function Mosaic() {
               <div className="relative h-48 md:h-64 shrink-0">
                 <img 
                   src={selectedCompany.image} 
-                  alt={selectedCompany.name} 
+                  alt={`Instalaciones y servicios de ${selectedCompany.name} en Villahermosa`} 
                   className="w-full h-full object-cover opacity-80"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-br ${selectedCompany.color} mix-blend-multiply opacity-40`}></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-neutral-900 via-white/50 dark:via-neutral-900/50 to-transparent"></div>
@@ -203,8 +205,9 @@ export default function Mosaic() {
                   <div className={`w-16 h-16 rounded-xl bg-white shadow-sm border border-corp-black/10 flex items-center justify-center shrink-0 p-2`}>
                     <img 
                       src={selectedCompany.logo} 
-                      alt={`Logo ${selectedCompany.name}`} 
+                      alt={`Logotipo de ${selectedCompany.name} - ${selectedCompany.category} en el Sureste de México`} 
                       className="w-full h-full object-contain"
+                      loading="lazy"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                         e.currentTarget.nextElementSibling?.classList.remove('hidden');
@@ -214,7 +217,7 @@ export default function Mosaic() {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold uppercase tracking-widest text-gold-500 mb-1">{selectedCompany.category}</h4>
-                    <h3 className="text-3xl font-display font-bold text-corp-black dark:text-white">{selectedCompany.name}</h3>
+                    <h2 className="text-3xl font-display font-bold text-corp-black dark:text-white">{selectedCompany.name}</h2>
                   </div>
                 </div>
                 
